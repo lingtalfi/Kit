@@ -204,17 +204,20 @@ class KitPageRenderer
                             $handler = $this->widgetHandlers[$type];
 
 
-                            if (false === $this->strictMode) {
-                                $htmlCode = $handler->handle($widgetConf, $this->copilot);
+                            $debugArray = [
+                                "page" => $pageLabel,
+                                "zone" => $zoneName,
+                            ];
+
+
+                            if (true === $this->strictMode) {
+                                $htmlCode = $handler->handle($widgetConf, $this->copilot, $debugArray);
                             } else {
                                 try {
-                                    $htmlCode = $handler->handle($widgetConf, $this->copilot);
+                                    $htmlCode = $handler->handle($widgetConf, $this->copilot, $debugArray);
                                 } catch (\Exception $e) {
                                     if (null !== $this->errorHandler) {
-                                        $htmlCode = call_user_func($this->errorHandler, $e, $widgetConf, [
-                                            "page" => $pageLabel,
-                                            "zone" => $zoneName,
-                                        ]);
+                                        $htmlCode = call_user_func($this->errorHandler, $e, $widgetConf, $debugArray);
                                     } else {
                                         $widgetName = $widgetConf['name'];
                                         $htmlCode = '<span class="widget-error">An error occurred with widget ' . $widgetName . '.</span>';

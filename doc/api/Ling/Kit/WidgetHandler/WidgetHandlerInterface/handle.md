@@ -16,7 +16,7 @@ Description
 ================
 
 
-abstract public [WidgetHandlerInterface::handle](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/WidgetHandler/WidgetHandlerInterface/handle.md)(array $widgetConf, [Ling\HtmlPageTools\Copilot\HtmlPageCopilot](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md) $copilot) : string
+abstract public [WidgetHandlerInterface::handle](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/WidgetHandler/WidgetHandlerInterface/handle.md)(array $widgetConf, [Ling\HtmlPageTools\Copilot\HtmlPageCopilot](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md) $copilot, array $debug) : string
 
 
 
@@ -27,6 +27,12 @@ If the widget uses some assets, or use some js code block, it also registers the
 For more info about the copilot, see the [HtmlPageCopilot documentation](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md).
 
 If something goes wrong, the widget should throw an exception.
+
+The debug array can help creating useful error messages.
+It's an array containing the following entries:
+
+- page: the page label of the page containing the widget
+- zone: the name of the zone containing the widget
 
 
 
@@ -40,6 +46,10 @@ Parameters
     
 
 - copilot
+
+    
+
+- debug
 
     
 

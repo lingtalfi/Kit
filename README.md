@@ -128,6 +128,11 @@ For instance, we could have a kit directory with the following structure:
 History Log
 =============
 
+- 1.1.0 -- 2019-04-24
+
+    - add debug array to WidgetHandlerInterface->handle
+    - fix typo in KitPageRenderer
+    
 - 1.0.0 -- 2019-04-24
 
     - initial commit
