@@ -97,6 +97,12 @@ zones:
 ```
 
 
+Important note: due to some implementation details, when a zone is configured in the zone section, all the widgets 
+contained in that zone will be processed, even if you don't use them in your layout. 
+So, make sure that your layout uses all the zones defined in this configuration array, otherwise you would process widgets
+that aren't actually used (waste of performance).
+
+
 
 
 A Babyyaml implementation of the kit configuration array
@@ -128,6 +134,10 @@ For instance, we could have a kit directory with the following structure:
 History Log
 =============
 
+- 1.2.0 -- 2019-04-24
+
+    - fix KitPageRenderer->printPage calling top and bottom parts BEFORE the widgets configuring the Copilot
+    
 - 1.1.0 -- 2019-04-24
 
     - add debug array to WidgetHandlerInterface->handle

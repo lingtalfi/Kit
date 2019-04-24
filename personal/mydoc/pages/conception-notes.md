@@ -82,6 +82,13 @@ zones:
 ```
 
 
+Important note: when a zone is configured in the zone section, all the widgets contained in that zone will be processed,
+even if you don't use them in your layout. 
+So, make sure that your layout uses all the zones defined in this configuration array, otherwise you would process widgets
+that aren't actually used (waste of performance).
+
+
+
 ### Comments
 
 On a design level, I wanted us to be able to re-use zones from one page to the other.
@@ -157,97 +164,53 @@ I personally like babyYaml, being a developer, using the IDE all the time, so I'
 Later, I will implement a mysql version, to see if a system is better than the other.
 
  
-
-
-
-Going deeper with widgets: the picasso widget
-----------------
-
-Now as I said earlier, a widget configuration depends on the widget.
-I will create an implementation that corresponds to my needs, and I will name it Picasso, after the painter of the same name (don't ask me why),
-just to pave the way and show that an infinite number of widget systems implementation are possible.
-
-Now if you want to use the Picasso system, you're welcome.
-
-The picasso system basically uses a php class and a file structure convention.
-
-The php class must extend the PicassoWidget class, and must contain a widget directory right next to the php class, with the following structure:
-
-
-```txt
-- widget/
------ templates/            # this directory contains the templates available to this widget
---------- prototype.php     # just an example, can be any name really...
---------- default.php       # just an example, can be any name really...
------ js-init/
---------- default.js        # can be any name, but it's the same name as a template
-```
-
-
-So the main ideas here are:
-
-- a [planet](https://github.com/karayabin/universe-snapshot) can provide multiple widgets
-- the use of templates
-- the use of js-init files
-
-
-###  A planet can provide multiple widgets
-
-When I say planet, I mean any container really, but the planet is a container.
-And so the idea is that since we don't have the widget directory at the root of the planet (or container), the planet
-can provide multiple widgets (not only one). 
-
-
-
-### Using templates
-
-I decided to use templates for two reasons:
  
-- it's easy to switch from a template to another.
-- I personally like the prototyping approach for creating websites, where you first inject the html from a template, 
-        and then make it dynamic using php code injection, and so starting by creating a prototype template (by copy-pasting
-        from the original template model) is a methodology that I promote. 
-
-### Using js-init files
-
-In the picasso approach, we like to put js scripts at the end of the html page, just before the closing body tag.
-In there, we also put the js code for the widgets that need such initialization code.
-
-The idea with the js-init files is that when the template is loaded, the initialization js code blocks are also automatically
-loaded (via the use of the Copilot object from the [HtmlPageRenderer](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Renderer/HtmlPageRenderer.md)).
-
-The main benefit of using js-init files is that we use js files, and so the writing of initialization code is easy (because
-your IDE will provide you with the correct js syntax highlighting).
-
-Now with this system, the js init file name must match the template name.
-
-The benefit is:
-
-- simple conception, easy to remember
-
-One drawback is:
-
-- we don't have a fancy common.js file that would be called for every template for instance
-
-But as always, I tend to prefer simple things over fancy ones, so I opted for the first mechanism (at least for now). 
-
-
-### The picasso widget configuration array
-
-So, here is the configuration array for the picasso widget:
-
-```yaml
-className: $theClassName        # for instance Ling\MyFirstPicassoWidget\MyFirstPicassoWidget 
-template: $templateName         # for instance: default.php, or prototype.php. This is the path to the template file, relative to the widget/templates directory of the planet.
-``` 
-
-
-Again: I could drop the file extension in the name, to save us four characters per widget configuration array,
-but I believe it's not worth it. 
-Because today I use php extension, but I don't know about tomorrow.
 
 
 
-Now since Picasso is the first widget system, I believe I will include it with Kit, so that the newbie user doesn't have to
-fetch for a Picasso planet when she doesn't even know about kit (hopefully this is not a design flaw right there).
-Actually you know what, I won't include it in Kit, because Kit is already complex enough by itself.
+
+Capturing the zones
+---------------
+In version 1.1.0, I made a mistake with the implementation of the KitPageRenderer.
+
+Basically, I just called the layout, which contains the calls to the printZone methods, 
+assuming that everything will display nicely in the end.
+
+Well, that was totally wrong, because I forgot that the widgets are actually feeding the Copilot object,
+and that the top and bottom parts, which are inside the layout, are fed by the Copilot.
+
+In other words, there is an order of execution which I forgot about, and this order is:
+
+- first call the widgets
+- then call the layout
+
+Now the idea of the fix (in 1.2.0) is that I capture the widget zones in the first pass,
+so that I then can call the layout as before. 
+
+Then the printZone methods will just call the pre-cached zones.
+
+Now to know which zones to capture, I thought about using a regex that would parse the layout, but that would fail
+if the user decides to use dynamic names.
+
+So after thinking about various solutions, the simplest solution that occurred to me was to simply use the zones 
+from the page configuration array.
+
+The only drawback with this technique is that if for some reasons the user removes a call to a zone from the layout,
+but doesn't remove the corresponding zone in the configuration, the zone will be processed nonetheless (i.e. it will have 
+a performance cost depending on the widgets in the zone).
+
+In other words, with this conception, any zone configured in the configuration file will be processed.
+
+
+
+
+
+
+
+
+
+
+
+
+
+

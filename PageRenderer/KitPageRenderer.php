@@ -98,6 +98,14 @@ class KitPageRenderer
      */
     protected $errorHandler;
 
+    /**
+     * This property holds the zones for this instance.
+     * It's an array of zoneName => zone html code.
+     *
+     * @var array
+     */
+    protected $zones;
+
 
     /**
      * Builds the KitPageRenderer instance.
@@ -109,6 +117,7 @@ class KitPageRenderer
         $this->pageConf = null;
         $this->strictMode = true;
         $this->errorHandler = null;
+        $this->zones = [];
     }
 
     /**
@@ -172,7 +181,16 @@ class KitPageRenderer
             $layoutVars = $this->pageConf['layout_vars'] ?? [];
 
             if (file_exists($layout)) {
+
+                // let the widgets configure the copilot
+                $this->captureZones();
+
+                /**
+                 * Now that the copilot is configured, we can call the layout, which will in turn
+                 * call the top and bottom parts of the html page (amongst other things).
+                 */
                 include $layout;
+
 
             } else {
                 throw new KitException("The layout file doesn't exist: $layout in page $pageLabel.");
@@ -193,54 +211,87 @@ class KitPageRenderer
     {
         if (null !== $this->pageConf) {
             $pageLabel = $this->pageConf['label'];
-            $zones = $this->pageConf['zones'] ?? [];
-            if (array_key_exists($zoneName, $zones)) {
-                $widgets = $zones[$zoneName];
-                foreach ($widgets as $widgetConf) {
-                    $active = $widgetConf['active'] ?? true;
-                    if (true === $active) {
-                        $type = $widgetConf['type'];
-                        if (array_key_exists($type, $this->widgetHandlers)) {
-                            $handler = $this->widgetHandlers[$type];
-
-
-                            $debugArray = [
-                                "page" => $pageLabel,
-                                "zone" => $zoneName,
-                            ];
-
-
-                            if (true === $this->strictMode) {
-                                $htmlCode = $handler->handle($widgetConf, $this->copilot, $debugArray);
-                            } else {
-                                try {
-                                    $htmlCode = $handler->handle($widgetConf, $this->copilot, $debugArray);
-                                } catch (\Exception $e) {
-                                    if (null !== $this->errorHandler) {
-                                        $htmlCode = call_user_func($this->errorHandler, $e, $widgetConf, $debugArray);
-                                    } else {
-                                        $widgetName = $widgetConf['name'];
-                                        $htmlCode = '<span class="widget-error">An error occurred with widget ' . $widgetName . '.</span>';
-                                    }
-                                }
-                            }
-
-
-                            echo $htmlCode;
-
-
-                        } else {
-                            $widgetName = $widgetConf['name'];
-                            throw new KitException("This widget type is not handled: $type, for widget $widgetName in page $pageLabel.");
-                        }
-
-                    }
-                }
+            if (array_key_exists($zoneName, $this->zones)) {
+                echo $this->zones[$zoneName];
             } else {
                 throw new KitException("You called an undefined zone: $zoneName in page $pageLabel.");
             }
         } else {
             throw new KitException("Bad configuration: the configuration is not set. Use the setConf method.");
+        }
+    }
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Captures the zones defined in the configuration and stores them temporarily.
+     *
+     * The goal being:
+     *
+     * - to let widgets of the zones configure the Copilot object (so that the layout, which contains the top and bottom, can be displayed properly).
+     * - then inject the captured zones' html into the layout
+     *
+     *
+     * @throws \Exception
+     */
+    protected function captureZones()
+    {
+        $zones = $this->pageConf['zones'] ?? [];
+        $pageLabel = $this->pageConf['label'];
+
+        foreach ($zones as $zoneName => $widgets) {
+
+
+            // capture the zone html code in s
+            $s = '';
+
+            foreach ($widgets as $widgetConf) {
+                $active = $widgetConf['active'] ?? true;
+                if (true === $active) {
+                    $type = $widgetConf['type'];
+                    if (array_key_exists($type, $this->widgetHandlers)) {
+                        $handler = $this->widgetHandlers[$type];
+
+
+                        $debugArray = [
+                            "page" => $pageLabel,
+                            "zone" => $zoneName,
+                        ];
+
+
+                        if (true === $this->strictMode) {
+                            $htmlCode = $handler->handle($widgetConf, $this->copilot, $debugArray);
+                        } else {
+                            try {
+                                $htmlCode = $handler->handle($widgetConf, $this->copilot, $debugArray);
+                            } catch (\Exception $e) {
+                                if (null !== $this->errorHandler) {
+                                    $htmlCode = call_user_func($this->errorHandler, $e, $widgetConf, $debugArray);
+                                } else {
+                                    $widgetName = $widgetConf['name'];
+                                    $htmlCode = '<span class="widget-error">An error occurred with widget ' . $widgetName . '.</span>';
+                                }
+                            }
+                        }
+
+
+                        $s .= $htmlCode;
+
+
+                    } else {
+                        $widgetName = $widgetConf['name'];
+                        throw new KitException("This widget type is not handled: $type, for widget $widgetName in page $pageLabel.");
+                    }
+
+                }
+            }
+
+
+            $this->zones[$zoneName] = $s;
+
+
         }
     }
 }

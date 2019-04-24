@@ -51,6 +51,7 @@ class <span class="pl-k">KitPageRenderer</span>  {
     - protected [Ling\HtmlPageTools\Copilot\HtmlPageCopilot](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md) [$copilot](#property-copilot) ;
     - protected bool [$strictMode](#property-strictMode) ;
     - protected callable [$errorHandler](#property-errorHandler) ;
+    - protected array [$zones](#property-zones) ;
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/__construct.md)() : void
@@ -60,6 +61,7 @@ class <span class="pl-k">KitPageRenderer</span>  {
     - public [registerWidgetHandler](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/registerWidgetHandler.md)(string $type, [Ling\Kit\WidgetHandler\WidgetHandlerInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/WidgetHandler/WidgetHandlerInterface.md) $handler) : void
     - public [printPage](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/printPage.md)() : void
     - public [printZone](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/printZone.md)(string $zoneName) : void
+    - protected [captureZones](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/captureZones.md)() : void
 
 }
 
@@ -123,6 +125,13 @@ Properties
     
     
 
+- <span id="property-zones"><b>zones</b></span>
+
+    This property holds the zones for this instance.
+    It's an array of zoneName => zone html code.
+    
+    
+
 
 
 Methods
@@ -135,6 +144,7 @@ Methods
 - [KitPageRenderer::registerWidgetHandler](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/registerWidgetHandler.md) &ndash; Registers a widget handler for the given (widget) type.
 - [KitPageRenderer::printPage](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/printPage.md) &ndash; Prints the page.
 - [KitPageRenderer::printZone](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/printZone.md) &ndash; Prints a zone.
+- [KitPageRenderer::captureZones](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/captureZones.md) &ndash; Captures the zones defined in the configuration and stores them temporarily.
 
 
 
