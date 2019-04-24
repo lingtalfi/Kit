@@ -11,11 +11,7 @@ Conception notes
  * [About type](#about-type)
 * [A Babyyaml implementation of the kit configuration array](#a-babyyaml-implementation-of-the-kit-configuration-array)
 * [Database vs BabyYaml?](#database-vs-babyyaml)
-* [Going deeper with widgets: the picasso widget](#going-deeper-with-widgets-the-picasso-widget)
- * [A planet can provide multiple widgets](#a-planet-can-provide-multiple-widgets)
- * [Using templates](#using-templates)
- * [Using js-init files](#using-js-init-files)
- * [The picasso widget configuration array](#the-picasso-widget-configuration-array)
+
          
          
          
