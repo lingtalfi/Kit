@@ -52,6 +52,7 @@ class <span class="pl-k">KitPageRenderer</span>  {
     - protected bool [$strictMode](#property-strictMode) ;
     - protected callable [$errorHandler](#property-errorHandler) ;
     - protected array [$zones](#property-zones) ;
+    - protected string [$layoutRootDir](#property-layoutRootDir) ;
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/__construct.md)() : void
@@ -59,6 +60,7 @@ class <span class="pl-k">KitPageRenderer</span>  {
     - public [setStrictMode](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/setStrictMode.md)(bool $strictMode) : [KitPageRenderer](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer.md)
     - public [setErrorHandler](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/setErrorHandler.md)(callable $errorHandler) : void
     - public [registerWidgetHandler](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/registerWidgetHandler.md)(string $type, [Ling\Kit\WidgetHandler\WidgetHandlerInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/WidgetHandler/WidgetHandlerInterface.md) $handler) : void
+    - public [setLayoutRootDir](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/setLayoutRootDir.md)(string $layoutRootDir) : [KitPageRenderer](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer.md)
     - public [printPage](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/printPage.md)() : void
     - public [printZone](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/printZone.md)(string $zoneName) : void
     - protected [captureZones](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/captureZones.md)() : void
@@ -132,6 +134,14 @@ Properties
     
     
 
+- <span id="property-layoutRootDir"><b>layoutRootDir</b></span>
+
+    This property holds the layoutRootDir for this instance.
+    The path to the directory containing all layouts used by this instance.
+    Generally, you can set this to your app directory.
+    
+    
+
 
 
 Methods
@@ -142,6 +152,7 @@ Methods
 - [KitPageRenderer::setStrictMode](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/setStrictMode.md) &ndash; Sets the strictMode.
 - [KitPageRenderer::setErrorHandler](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/setErrorHandler.md) &ndash; Sets the errorHandler.
 - [KitPageRenderer::registerWidgetHandler](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/registerWidgetHandler.md) &ndash; Registers a widget handler for the given (widget) type.
+- [KitPageRenderer::setLayoutRootDir](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/setLayoutRootDir.md) &ndash; Sets the layoutRootDir.
 - [KitPageRenderer::printPage](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/printPage.md) &ndash; Prints the page.
 - [KitPageRenderer::printZone](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/printZone.md) &ndash; Prints a zone.
 - [KitPageRenderer::captureZones](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/captureZones.md) &ndash; Captures the zones defined in the configuration and stores them temporarily.

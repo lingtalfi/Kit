@@ -65,7 +65,7 @@ Here is the configuration for a given page (variables are preceded with the doll
 ```yaml
 
 label: $pageLabel               # The human name for the page. It is used in error messages.                 
-layout: $layoutRelPath          # The relative path to the layout file for this page. The path is relative to a root which shall be defined in the general configuration of kit.
+layout: $layoutRelPath          # The relative path to the layout file for this page. The path is relative to a root which shall be defined in the general configuration of kit. Generally, the app directory.
 layout_vars: []                 # an array of layout vars that will be accessible to the layout (a layout might be configured to some degree by such variables, depending on the layout)
 zones:
     $zoneName:                  # note: the zone name is called from the layout file 

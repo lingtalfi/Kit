@@ -106,6 +106,16 @@ class KitPageRenderer
      */
     protected $zones;
 
+    /**
+     * This property holds the layoutRootDir for this instance.
+     * The path to the directory containing all layouts used by this instance.
+     * Generally, you can set this to your app directory.
+     *
+     *
+     * @var string
+     */
+    protected $layoutRootDir;
+
 
     /**
      * Builds the KitPageRenderer instance.
@@ -118,6 +128,7 @@ class KitPageRenderer
         $this->strictMode = true;
         $this->errorHandler = null;
         $this->zones = [];
+        $this->layoutRootDir = null;
     }
 
     /**
@@ -164,6 +175,18 @@ class KitPageRenderer
         $this->widgetHandlers[$type] = $handler;
     }
 
+    /**
+     * Sets the layoutRootDir.
+     *
+     * @param string $layoutRootDir
+     * @return $this
+     */
+    public function setLayoutRootDir(string $layoutRootDir)
+    {
+        $this->layoutRootDir = $layoutRootDir;
+        return $this;
+    }
+
 
     /**
      *
@@ -175,25 +198,30 @@ class KitPageRenderer
     public function printPage()
     {
         if (null !== $this->pageConf) {
+            if (null !== $this->layoutRootDir) {
 
-            $pageLabel = $this->pageConf['label'];
-            $layout = $this->pageConf['layout'];
-            $layoutVars = $this->pageConf['layout_vars'] ?? [];
+                $pageLabel = $this->pageConf['label'];
+                $layout = $this->layoutRootDir . "/" . $this->pageConf['layout'];
+                $layoutVars = $this->pageConf['layout_vars'] ?? [];
 
-            if (file_exists($layout)) {
+                if (file_exists($layout)) {
 
-                // let the widgets configure the copilot
-                $this->captureZones();
+                    // let the widgets configure the copilot
+                    $this->captureZones();
 
-                /**
-                 * Now that the copilot is configured, we can call the layout, which will in turn
-                 * call the top and bottom parts of the html page (amongst other things).
-                 */
-                include $layout;
+                    /**
+                     * Now that the copilot is configured, we can call the layout, which will in turn
+                     * call the [top and bottom parts](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Renderer/HtmlPageRenderer.md#the-top-and-bottom-concept) of
+                     * the html page (amongst other things).
+                     */
+                    include $layout;
 
 
+                } else {
+                    throw new KitException("The layout file doesn't exist: $layout in page $pageLabel.");
+                }
             } else {
-                throw new KitException("The layout file doesn't exist: $layout in page $pageLabel.");
+                throw new KitException("Bad configuration: the layoutRootDir is not set. Use the setLayoutRootDir method.");
             }
         } else {
             throw new KitException("Bad configuration: the configuration is not set. Use the setConf method.");
