@@ -32,6 +32,7 @@ Summary
 - [The concepts used by Kit](#the-concepts-used-by-kit)
 - [The kit configuration array](#the-kit-configuration-array)
     - [A Babyyaml implementation of the kit configuration array](#a-babyyaml-implementation-of-the-kit-configuration-array)
+- [Related](#related)
 - [History Log](#history-log)
 
 
