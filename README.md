@@ -125,7 +125,10 @@ For instance, we could have a kit directory with the following structure:
 ```
 
 
+Related
+========
 
+- [Kit_PicassoWidget](https://github.com/lingtalfi/Kit_PicassoWidget): a widget type 
 
 
 
