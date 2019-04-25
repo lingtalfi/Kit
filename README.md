@@ -89,7 +89,7 @@ layout: $layoutRelPath          # The relative path to the layout file for this 
 layout_vars: []                 # an array of layout vars that will be accessible to the layout (a layout might be configured to some degree by such variables, depending on the layout)
 zones:
     $zoneName:                  # note: the zone name is called from the layout file 
-        -   
+        -                           # this array is the widget configuration array
             name: $widgetName       # the widget name
             type: $widgetType       # the widget type
             ?active: $bool          # whether to use the widget, defaults to true
