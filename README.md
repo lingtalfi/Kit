@@ -130,6 +130,7 @@ Related
 ========
 
 - [Kit_PicassoWidget](https://github.com/lingtalfi/Kit_PicassoWidget): a widget type 
+- [Kit_PrototypeWidget](https://github.com/lingtalfi/Kit_PrototypeWidget): a widget type 
 
 
 
