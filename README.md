@@ -139,6 +139,10 @@ Related
 History Log
 =============
 
+- 1.3.0 -- 2019-04-25
+
+    - add ConfStorageInterface
+    
 - 1.2.0 -- 2019-04-24
 
     - fix KitPageRenderer->printPage calling top and bottom parts BEFORE the widgets configuring the Copilot
