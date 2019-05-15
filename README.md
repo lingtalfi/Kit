@@ -145,6 +145,10 @@ Related
 History Log
 =============
 
+- 1.5.1 -- 2019-05-15
+
+    - update documentation for widget conf decorators  
+    
 - 1.5.0 -- 2019-04-30
 
     - add the idea (with commented implementation) for widget conf decorators  
