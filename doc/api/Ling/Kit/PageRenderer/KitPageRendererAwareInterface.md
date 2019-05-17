@@ -25,7 +25,7 @@ Class synopsis
 abstract class <span class="pl-k">KitPageRendererAwareInterface</span>  {
 
 - Methods
-    - abstract public [setKitPageRenderer](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererAwareInterface/setKitPageRenderer.md)([Ling\Kit\PageRenderer\KitPageRenderer](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer.md) $renderer) : void
+    - abstract public [setKitPageRenderer](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererAwareInterface/setKitPageRenderer.md)([Ling\Kit\PageRenderer\KitPageRendererInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererInterface.md) $renderer) : void
 
 }
 

@@ -14,8 +14,8 @@ interface KitPageRendererAwareInterface
      * Sets the KitPageRenderer instance.
      *
      *
-     * @param KitPageRenderer $renderer
+     * @param KitPageRendererInterface $renderer
      * @return void
      */
-    public function setKitPageRenderer(KitPageRenderer $renderer);
+    public function setKitPageRenderer(KitPageRendererInterface $renderer);
 }
