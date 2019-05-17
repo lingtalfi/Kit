@@ -32,7 +32,7 @@ Parameters
 
 - pageConf
 
-    
+    See more details in the @page(page configuration array) document.
 
 
 Return values

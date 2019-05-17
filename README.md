@@ -145,6 +145,10 @@ Related
 History Log
 =============
 
+- 1.7.0 -- 2019-05-17
+
+    - add KitPageRendererInterface  
+    
 - 1.6.0 -- 2019-05-17
 
     - add KitPageRendererAwareInterface  

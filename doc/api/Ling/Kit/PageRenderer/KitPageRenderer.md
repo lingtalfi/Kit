@@ -43,7 +43,7 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">KitPageRenderer</span>  {
+class <span class="pl-k">KitPageRenderer</span> implements [KitPageRendererInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererInterface.md) {
 
 - Properties
     - protected [Ling\Kit\WidgetHandler\WidgetHandlerInterface[]](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/WidgetHandler/WidgetHandlerInterface.md) [$widgetHandlers](#property-widgetHandlers) ;

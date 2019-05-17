@@ -37,7 +37,7 @@ use Ling\Kit\WidgetHandler\WidgetHandlerInterface;
  *
  *
  */
-class KitPageRenderer
+class KitPageRenderer implements KitPageRendererInterface
 {
 
     /**
@@ -142,9 +142,7 @@ class KitPageRenderer
     }
 
     /**
-     * Sets the pageConf.
-     *
-     * @param array $pageConf
+     * @implementation
      */
     public function setPageConf(array $pageConf)
     {
@@ -210,11 +208,7 @@ class KitPageRenderer
 
 
     /**
-     *
-     * Prints the page.
-     *
-     *
-     * @throws KitException
+     * @implementation
      */
     public function printPage()
     {
@@ -266,11 +260,9 @@ class KitPageRenderer
     }
 
 
+
     /**
-     * Prints a zone.
-     *
-     * @param string $zoneName
-     * @throws KitException
+     * @implementation
      */
     public function printZone(string $zoneName)
     {
