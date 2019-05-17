@@ -145,6 +145,10 @@ Related
 History Log
 =============
 
+- 1.6.0 -- 2019-05-17
+
+    - add KitPageRendererAwareInterface  
+    
 - 1.5.1 -- 2019-05-15
 
     - update documentation for widget conf decorators  

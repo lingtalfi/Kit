@@ -4,7 +4,7 @@
 
 The KitPageRenderer class
 ================
-2019-04-24 --> 2019-05-15
+2019-04-24 --> 2019-05-17
 
 
 
@@ -178,4 +178,4 @@ Ling\Kit\PageRenderer\KitPageRenderer
 
 SeeAlso
 ==============
-Previous class: [KitException](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/Exception/KitException.md)<br>Next class: [KitWidgetInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/Widget/KitWidgetInterface.md)<br>
+Previous class: [KitException](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/Exception/KitException.md)<br>Next class: [KitPageRendererAwareInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererAwareInterface.md)<br>

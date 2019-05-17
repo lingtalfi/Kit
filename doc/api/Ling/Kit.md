@@ -1,6 +1,6 @@
 Ling/Kit
 ================
-2019-04-24 --> 2019-05-15
+2019-04-24 --> 2019-05-17
 
 
 
@@ -27,6 +27,8 @@ Table of contents
     - [KitPageRenderer::addWidgetConfDecorator](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/addWidgetConfDecorator.md) &ndash; Adds a widget configuration decorator to this instance.
     - [KitPageRenderer::printPage](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/printPage.md) &ndash; Prints the page.
     - [KitPageRenderer::printZone](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/printZone.md) &ndash; Prints a zone.
+- [KitPageRendererAwareInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererAwareInterface.md) &ndash; The KitPageRendererAwareInterface interface.
+    - [KitPageRendererAwareInterface::setKitPageRenderer](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererAwareInterface/setKitPageRenderer.md) &ndash; Sets the KitPageRenderer instance.
 - [KitWidgetInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/Widget/KitWidgetInterface.md) &ndash; The KitWidgetInterface interface.
 - [WidgetConfDecoratorInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/WidgetConfDecorator/WidgetConfDecoratorInterface.md) &ndash; The WidgetConfDecoratorInterface interface.
     - [WidgetConfDecoratorInterface::decorate](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/WidgetConfDecorator/WidgetConfDecoratorInterface/decorate.md) &ndash; Decorates the given widget configuration array.

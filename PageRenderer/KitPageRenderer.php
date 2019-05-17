@@ -340,6 +340,11 @@ class KitPageRenderer
                         $handler = $this->widgetHandlers[$type];
 
 
+                        if ($handler instanceof KitPageRendererAwareInterface) {
+                            $handler->setKitPageRenderer($this);
+                        }
+
+
                         $debugArray = [
                             "page" => $pageLabel,
                             "zone" => $zoneName,
