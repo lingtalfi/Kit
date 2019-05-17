@@ -14,7 +14,7 @@ The KitPageRendererInterface class
 Introduction
 ============
 
-
+The KitPageRendererInterface interface.
 
 
 

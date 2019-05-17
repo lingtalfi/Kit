@@ -7,6 +7,9 @@ namespace Ling\Kit\PageRenderer;
 use Ling\Kit\Exception\KitException;
 
 
+/**
+ * The KitPageRendererInterface interface.
+ */
 interface KitPageRendererInterface
 {
 
