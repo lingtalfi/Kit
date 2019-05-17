@@ -145,6 +145,10 @@ Related
 History Log
 =============
 
+- 1.7.2 -- 2019-05-17
+
+    - fix KitPageRenderer not handling printZone robustly  
+    
 - 1.7.1 -- 2019-05-17
 
     - fix KitPageRendererAwareInterface not using KitPageRendererInterface  

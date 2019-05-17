@@ -260,7 +260,6 @@ class KitPageRenderer implements KitPageRendererInterface
     }
 
 
-
     /**
      * @implementation
      */
@@ -268,6 +267,21 @@ class KitPageRenderer implements KitPageRendererInterface
     {
         if (null !== $this->pageConf) {
             $pageLabel = $this->pageConf['label'];
+
+
+            /**
+             * This case occurs when a kit page renderer aware widget tries
+             * to print a zone which wasn't yet rendered.
+             */
+            if (false === array_key_exists($zoneName, $this->zones)) {
+                $zones = $this->pageConf['zones'] ?? [];
+                if (false === array_key_exists($zoneName, $zones)) {
+                    throw new KitException("You called an undefined zone: $zoneName in page $pageLabel.");
+                }
+                $this->captureZone($zoneName, $zones[$zoneName]);
+            }
+
+
             if (array_key_exists($zoneName, $this->zones)) {
                 echo $this->zones[$zoneName];
             } else {
@@ -282,6 +296,7 @@ class KitPageRenderer implements KitPageRendererInterface
     //--------------------------------------------
     //
     //--------------------------------------------
+
     /**
      * Captures the zones defined in the configuration and stores them temporarily.
      *
@@ -296,10 +311,27 @@ class KitPageRenderer implements KitPageRendererInterface
     protected function captureZones()
     {
         $zones = $this->pageConf['zones'] ?? [];
-        $pageLabel = $this->pageConf['label'];
-
         foreach ($zones as $zoneName => $widgets) {
+            $this->captureZone($zoneName, $widgets);
+        }
+    }
 
+
+    /**
+     * The working horse method behind captureZones.
+     * It's also used by the printZone method, in the case some widget implementing KitPageRendererAwareInterface
+     * do print a zone which is not yet rendered.
+     *
+     *
+     * @param string $zoneName
+     * @param array $widgets
+     * @throws KitException
+     */
+    protected function captureZone(string $zoneName, array $widgets)
+    {
+
+        $pageLabel = $this->pageConf['label'];
+        if (false === array_key_exists($zoneName, $this->zones)) {
 
             // capture the zone html code in s
             $s = '';
@@ -372,8 +404,7 @@ class KitPageRenderer implements KitPageRendererInterface
 
 
             $this->zones[$zoneName] = $s;
-
-
         }
     }
+
 }
