@@ -4,7 +4,7 @@
 
 The KitPageRenderer class
 ================
-2019-04-24 --> 2019-05-17
+2019-04-24 --> 2019-07-11
 
 
 
@@ -52,11 +52,13 @@ class <span class="pl-k">KitPageRenderer</span> implements [KitPageRendererInter
     - protected bool [$strictMode](#property-strictMode) ;
     - protected callable [$errorHandler](#property-errorHandler) ;
     - protected array [$zones](#property-zones) ;
+    - protected array [$widgetsCount](#property-widgetsCount) ;
     - protected string [$layoutRootDir](#property-layoutRootDir) ;
     - protected [Ling\Kit\WidgetConfDecorator\WidgetConfDecoratorInterface[]](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/WidgetConfDecorator/WidgetConfDecoratorInterface.md) [$widgetConfDecorators](#property-widgetConfDecorators) ;
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/__construct.md)() : void
+    - public [countWidgets](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/countWidgets.md)(string $zoneName) : int
     - public [setPageConf](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/setPageConf.md)(array $pageConf) : void
     - public [setStrictMode](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/setStrictMode.md)(bool $strictMode) : [KitPageRenderer](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer.md)
     - public [setErrorHandler](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/setErrorHandler.md)(callable $errorHandler) : void
@@ -137,6 +139,12 @@ Properties
     
     
 
+- <span id="property-widgetsCount"><b>widgetsCount</b></span>
+
+    This property holds the number of widgets per zone for this instance.
+    
+    
+
 - <span id="property-layoutRootDir"><b>layoutRootDir</b></span>
 
     This property holds the layoutRootDir for this instance.
@@ -158,6 +166,7 @@ Methods
 ==============
 
 - [KitPageRenderer::__construct](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/__construct.md) &ndash; Builds the KitPageRenderer instance.
+- [KitPageRenderer::countWidgets](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/countWidgets.md) &ndash; Returns the number of widgets for a given zone.
 - [KitPageRenderer::setPageConf](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/setPageConf.md) &ndash; Sets the pageConf.
 - [KitPageRenderer::setStrictMode](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/setStrictMode.md) &ndash; Sets the strictMode.
 - [KitPageRenderer::setErrorHandler](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/setErrorHandler.md) &ndash; Sets the errorHandler.

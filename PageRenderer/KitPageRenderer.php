@@ -107,6 +107,13 @@ class KitPageRenderer implements KitPageRendererInterface
      */
     protected $zones;
 
+
+    /**
+     * This property holds the number of widgets per zone for this instance.
+     * @var array
+     */
+    protected $widgetsCount;
+
     /**
      * This property holds the layoutRootDir for this instance.
      * The path to the directory containing all layouts used by this instance.
@@ -139,7 +146,21 @@ class KitPageRenderer implements KitPageRendererInterface
         $this->zones = [];
         $this->layoutRootDir = null;
         $this->widgetConfDecorators = [];
+        $this->widgetsCount = [];
     }
+
+
+    /**
+     * @implementation
+     */
+    public function countWidgets(string $zoneName)
+    {
+        if (array_key_exists($zoneName, $this->widgetsCount)) {
+            return $this->widgetsCount[$zoneName];
+        }
+        return 0;
+    }
+
 
     /**
      * @implementation
@@ -217,7 +238,7 @@ class KitPageRenderer implements KitPageRendererInterface
 
                 $pageLabel = $this->pageConf['label'];
                 $layout = $this->layoutRootDir . "/" . $this->pageConf['layout'];
-                $layoutVars = $this->pageConf['layout_vars'] ?? [];
+
 
                 if (file_exists($layout)) {
 
@@ -236,7 +257,12 @@ class KitPageRenderer implements KitPageRendererInterface
                     }
 
 
-                    // let the widgets configure the copilot
+                    /**
+                     * Call the widgets.
+                     * They will:
+                     * - configure the copilot
+                     * - pre-cache the zones
+                     */
                     $this->captureZones();
 
 
@@ -332,6 +358,10 @@ class KitPageRenderer implements KitPageRendererInterface
 
         $pageLabel = $this->pageConf['label'];
         if (false === array_key_exists($zoneName, $this->zones)) {
+
+
+            $this->widgetsCount[$zoneName] = count($widgets);
+
 
             // capture the zone html code in s
             $s = '';

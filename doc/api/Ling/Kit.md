@@ -1,6 +1,6 @@
 Ling/Kit
 ================
-2019-04-24 --> 2019-05-17
+2019-04-24 --> 2019-07-11
 
 
 
@@ -19,6 +19,7 @@ Table of contents
 - [KitException](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/Exception/KitException.md) &ndash; The KitException class.
 - [KitPageRenderer](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer.md) &ndash; The KitPageRenderer class.
     - [KitPageRenderer::__construct](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/__construct.md) &ndash; Builds the KitPageRenderer instance.
+    - [KitPageRenderer::countWidgets](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/countWidgets.md) &ndash; Returns the number of widgets for a given zone.
     - [KitPageRenderer::setPageConf](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/setPageConf.md) &ndash; Sets the pageConf.
     - [KitPageRenderer::setStrictMode](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/setStrictMode.md) &ndash; Sets the strictMode.
     - [KitPageRenderer::setErrorHandler](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/setErrorHandler.md) &ndash; Sets the errorHandler.
@@ -33,6 +34,7 @@ Table of contents
     - [KitPageRendererInterface::setPageConf](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererInterface/setPageConf.md) &ndash; Sets the pageConf.
     - [KitPageRendererInterface::printPage](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererInterface/printPage.md) &ndash; Prints the page.
     - [KitPageRendererInterface::printZone](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererInterface/printZone.md) &ndash; Prints a zone.
+    - [KitPageRendererInterface::countWidgets](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererInterface/countWidgets.md) &ndash; Returns the number of widgets for a given zone.
 - [KitWidgetInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/Widget/KitWidgetInterface.md) &ndash; The KitWidgetInterface interface.
 - [WidgetConfDecoratorInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/WidgetConfDecorator/WidgetConfDecoratorInterface.md) &ndash; The WidgetConfDecoratorInterface interface.
     - [WidgetConfDecoratorInterface::decorate](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/WidgetConfDecorator/WidgetConfDecoratorInterface/decorate.md) &ndash; Decorates the given widget configuration array.

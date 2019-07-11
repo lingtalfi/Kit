@@ -4,7 +4,7 @@
 
 The KitPageRendererInterface class
 ================
-2019-04-24 --> 2019-05-17
+2019-04-24 --> 2019-07-11
 
 
 
@@ -28,6 +28,7 @@ abstract class <span class="pl-k">KitPageRendererInterface</span>  {
     - abstract public [setPageConf](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererInterface/setPageConf.md)(array $pageConf) : void
     - abstract public [printPage](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererInterface/printPage.md)() : void
     - abstract public [printZone](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererInterface/printZone.md)(string $zoneName) : void
+    - abstract public [countWidgets](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererInterface/countWidgets.md)(string $zoneName) : int
 
 }
 
@@ -42,6 +43,7 @@ Methods
 - [KitPageRendererInterface::setPageConf](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererInterface/setPageConf.md) &ndash; Sets the pageConf.
 - [KitPageRendererInterface::printPage](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererInterface/printPage.md) &ndash; Prints the page.
 - [KitPageRendererInterface::printZone](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererInterface/printZone.md) &ndash; Prints a zone.
+- [KitPageRendererInterface::countWidgets](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererInterface/countWidgets.md) &ndash; Returns the number of widgets for a given zone.
 
 
 

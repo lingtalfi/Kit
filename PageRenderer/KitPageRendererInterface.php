@@ -39,4 +39,14 @@ interface KitPageRendererInterface
      */
     public function printZone(string $zoneName);
 
+    /**
+     * Returns the number of widgets for a given zone.
+     *
+     * This is used by templates which look depends on the number of widgets.
+     *
+     * @param string $zoneName
+     * @return int
+     */
+    public function countWidgets(string $zoneName);
+
 }

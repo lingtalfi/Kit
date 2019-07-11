@@ -145,6 +145,10 @@ Related
 History Log
 =============
 
+- 1.7.3 -- 2019-07-11
+
+    - add KitPageRendererInterface::countWidgets method  
+    
 - 1.7.2 -- 2019-05-17
 
     - fix KitPageRenderer not handling printZone robustly  
