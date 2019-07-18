@@ -55,6 +55,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [BabyYamlConfStorage::getPageConf](https://github.com/lingtalfi/Kit/blob/master/ConfStorage/BabyYamlConfStorage.php#L72-L82)
+
+
 See Also
 ================
 

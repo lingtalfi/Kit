@@ -145,6 +145,10 @@ Related
 History Log
 =============
 
+- 1.7.4 -- 2019-07-18
+
+    - update docTools documentation, add links to source code for classes and methods
+    
 - 1.7.3 -- 2019-07-11
 
     - add KitPageRendererInterface::countWidgets method  

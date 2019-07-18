@@ -4,7 +4,7 @@
 
 The KitPageRenderer class
 ================
-2019-04-24 --> 2019-07-11
+2019-04-24 --> 2019-07-18
 
 
 
@@ -184,7 +184,9 @@ Methods
 
 Location
 =============
-Ling\Kit\PageRenderer\KitPageRenderer
+Ling\Kit\PageRenderer\KitPageRenderer<br>
+See the source code of [Ling\Kit\PageRenderer\KitPageRenderer](https://github.com/lingtalfi/Kit/blob/master/PageRenderer/KitPageRenderer.php)
+
 
 
 SeeAlso

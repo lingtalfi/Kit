@@ -4,7 +4,7 @@
 
 The BabyYamlConfStorage class
 ================
-2019-04-24 --> 2019-07-11
+2019-04-24 --> 2019-07-18
 
 
 
@@ -98,7 +98,9 @@ Methods
 
 Location
 =============
-Ling\Kit\ConfStorage\BabyYamlConfStorage
+Ling\Kit\ConfStorage\BabyYamlConfStorage<br>
+See the source code of [Ling\Kit\ConfStorage\BabyYamlConfStorage](https://github.com/lingtalfi/Kit/blob/master/ConfStorage/BabyYamlConfStorage.php)
+
 
 
 SeeAlso
