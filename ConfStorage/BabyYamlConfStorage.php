@@ -92,8 +92,7 @@ class BabyYamlConfStorage implements ConfStorageInterface
             $conf = BabyYamlUtil::readFile($pageFile);
             if (is_dir($dir)) {
                 /**
-                 * Basically we allow to add widgets to zones, and that's pretty much it.
-                 * There should be no need to modify other properties (or prove me wrong).
+                 * Allowing third-party plugins to tap into the page configuration.
                  *
                  * We use the arrayMergeReplaceRecursive algorithm which fits our needs perfectly.
                  *
