@@ -93,6 +93,12 @@ class BabyYamlConfStorage implements ConfStorageInterface
             if (is_dir($dir)) {
                 /**
                  * Allowing third-party plugins to tap into the page configuration.
+                 * This include:
+                 * - adding widgets to a zone
+                 * - replacing the widget template with a fancier one
+                 *
+                 *
+                 *
                  *
                  * We use the arrayMergeReplaceRecursive algorithm which fits our needs perfectly.
                  *
