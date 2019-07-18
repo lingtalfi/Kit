@@ -132,6 +132,32 @@ For instance, we could have a kit directory with the following structure:
 ```
 
 
+But, what a third-party plugin named **MyPlugin_One** wants to add some widgets to the page_one page configuration?
+
+In this implementation, we resolve this problem by creating a directory with the name of the page, and third-party
+plugins can put their addition into it. By convention, the addition of a third-party plugin will be named after it 
+(to make it easier to spot where the configuration comes from).
+
+So for instance the following structure might resolve the problem described above:
+
+
+```txt
+- kit/
+----- pages/
+--------- page_one.byml
+--------- page_two.byml
+--------- page_three.byml
+--------- page_one/
+------------- MyPlugin_One.byml
+------------- ...
+
+```
+
+How exactly are the additional files merged to the page configuration file is described in more details
+in the [BabyYamlConfStorage](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/ConfStorage/BabyYamlConfStorage.md) class.
+
+
+
 Related
 ========
 
@@ -145,6 +171,10 @@ Related
 History Log
 =============
 
+- 1.8.0 -- 2019-07-18
+
+    - update BabyYamlConfStorage, can now handle multiple plugins writing to the same page configuration file
+    
 - 1.7.4 -- 2019-07-18
 
     - update docTools documentation, add links to source code for classes and methods

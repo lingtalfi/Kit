@@ -45,6 +45,8 @@ Table of contents
 Dependencies
 ============
 - [BabyYaml](https://github.com/lingtalfi/BabyYaml)
+- [Bat](https://github.com/lingtalfi/Bat)
+- [DirScanner](https://github.com/lingtalfi/DirScanner)
 - [HtmlPageTools](https://github.com/lingtalfi/HtmlPageTools)
 
 

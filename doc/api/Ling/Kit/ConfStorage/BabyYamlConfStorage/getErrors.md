@@ -46,7 +46,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [BabyYamlConfStorage::getErrors](https://github.com/lingtalfi/Kit/blob/master/ConfStorage/BabyYamlConfStorage.php#L88-L91)
+See the source code for method [BabyYamlConfStorage::getErrors](https://github.com/lingtalfi/Kit/blob/master/ConfStorage/BabyYamlConfStorage.php#L120-L123)
 
 
 See Also
