@@ -92,6 +92,7 @@ title: This is the title of the page        # optional but strongly recommended,
 description: <                              # optional but strongly recommended, the seo description (the meta description tag)
     This is the description of the page
 >
+bodyClass: theme-dark
 
 zones:
     $zoneName:                              # note: the zone name is called from the layout file 
@@ -99,7 +100,7 @@ zones:
             name: $widgetName               # the widget name
             type: $widgetType               # the widget type
             ?active: $bool                  # whether to use the widget, defaults to true
-            ...                             # any other configuration value that you want 
+            ...                             # any other configuration value that you want           
             
 ```
 
@@ -158,6 +159,8 @@ in the [BabyYamlConfStorage](https://github.com/lingtalfi/Kit/blob/master/doc/ap
 
 
 
+
+
 Related
 ========
 
@@ -171,6 +174,10 @@ Related
 History Log
 =============
 
+- 1.9.0 -- 2019-07-25
+
+    - update KitPageRenderer, now understands the bodyClass page configuration property
+    
 - 1.8.0 -- 2019-07-18
 
     - update BabyYamlConfStorage, can now handle multiple plugins writing to the same page configuration file
