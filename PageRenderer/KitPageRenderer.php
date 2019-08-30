@@ -139,7 +139,7 @@ class KitPageRenderer implements KitPageRendererInterface
     public function __construct()
     {
         $this->widgetHandlers = [];
-        $this->copilot = new HtmlPageCopilot();
+        $this->copilot = $this->getNewHtmlPageCopilot();
         $this->pageConf = null;
         $this->strictMode = true;
         $this->errorHandler = null;
@@ -401,7 +401,6 @@ class KitPageRenderer implements KitPageRendererInterface
                             $handler->setKitPageRenderer($this);
                         }
 
-
                         $debugArray = [
                             "page" => $pageLabel,
                             "zone" => $zoneName,
@@ -440,4 +439,18 @@ class KitPageRenderer implements KitPageRendererInterface
         }
     }
 
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Returns a new HtmlPageCopilot instance.
+     *
+     * @return HtmlPageCopilot
+     * @overrideMe
+     */
+    protected function getNewHtmlPageCopilot(): HtmlPageCopilot
+    {
+        return new HtmlPageCopilot();
+    }
 }
