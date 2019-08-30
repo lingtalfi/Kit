@@ -69,7 +69,7 @@ class <span class="pl-k">KitPageRenderer</span> implements [KitPageRendererInter
     - public [printZone](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/printZone.md)(string $zoneName) : void
     - protected [captureZones](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/captureZones.md)() : void
     - protected [captureZone](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/captureZone.md)(string $zoneName, array $widgets) : void
-    - protected [getNewHtmlPageCopilot](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/getNewHtmlPageCopilot.md)() : [HtmlPageCopilot](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md)
+    - protected [getHtmlPageCopilot](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/getHtmlPageCopilot.md)() : [HtmlPageCopilot](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md)
 
 }
 
@@ -178,7 +178,7 @@ Methods
 - [KitPageRenderer::printZone](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/printZone.md) &ndash; Prints a zone.
 - [KitPageRenderer::captureZones](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/captureZones.md) &ndash; Captures the zones defined in the configuration and stores them temporarily.
 - [KitPageRenderer::captureZone](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/captureZone.md) &ndash; The working horse method behind captureZones.
-- [KitPageRenderer::getNewHtmlPageCopilot](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/getNewHtmlPageCopilot.md) &ndash; Returns a new HtmlPageCopilot instance.
+- [KitPageRenderer::getHtmlPageCopilot](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/getHtmlPageCopilot.md) &ndash; Returns an HtmlPageCopilot instance.
 
 
 

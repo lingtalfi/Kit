@@ -139,7 +139,7 @@ class KitPageRenderer implements KitPageRendererInterface
     public function __construct()
     {
         $this->widgetHandlers = [];
-        $this->copilot = $this->getNewHtmlPageCopilot();
+        $this->copilot = null;
         $this->pageConf = null;
         $this->strictMode = true;
         $this->errorHandler = null;
@@ -233,6 +233,8 @@ class KitPageRenderer implements KitPageRendererInterface
      */
     public function printPage()
     {
+        $copilot = $this->getHtmlPageCopilot();
+
         if (null !== $this->pageConf) {
             if (null !== $this->layoutRootDir) {
 
@@ -250,13 +252,13 @@ class KitPageRenderer implements KitPageRendererInterface
                      *
                      */
                     if (array_key_exists("title", $this->pageConf)) {
-                        $this->copilot->setTitle($this->pageConf['title']);
+                        $copilot->setTitle($this->pageConf['title']);
                     }
                     if (array_key_exists("description", $this->pageConf)) {
-                        $this->copilot->setDescription($this->pageConf['description']);
+                        $copilot->setDescription($this->pageConf['description']);
                     }
                     if (array_key_exists("bodyClass", $this->pageConf)) {
-                        $this->copilot->addBodyTagClass($this->pageConf['bodyClass']);
+                        $copilot->addBodyTagClass($this->pageConf['bodyClass']);
                     }
 
 
@@ -358,7 +360,7 @@ class KitPageRenderer implements KitPageRendererInterface
      */
     protected function captureZone(string $zoneName, array $widgets)
     {
-
+        $copilot = $this->getHtmlPageCopilot();
         $pageLabel = $this->pageConf['label'];
         if (false === array_key_exists($zoneName, $this->zones)) {
 
@@ -408,10 +410,10 @@ class KitPageRenderer implements KitPageRendererInterface
 
 
                         if (true === $this->strictMode) {
-                            $htmlCode = $handler->handle($widgetConf, $this->copilot, $debugArray);
+                            $htmlCode = $handler->handle($widgetConf, $copilot, $debugArray);
                         } else {
                             try {
-                                $htmlCode = $handler->handle($widgetConf, $this->copilot, $debugArray);
+                                $htmlCode = $handler->handle($widgetConf, $copilot, $debugArray);
                             } catch (\Exception $e) {
                                 if (null !== $this->errorHandler) {
                                     $htmlCode = call_user_func($this->errorHandler, $e, $widgetConf, $debugArray);
@@ -444,13 +446,16 @@ class KitPageRenderer implements KitPageRendererInterface
     //
     //--------------------------------------------
     /**
-     * Returns a new HtmlPageCopilot instance.
+     * Returns an HtmlPageCopilot instance.
      *
      * @return HtmlPageCopilot
      * @overrideMe
      */
-    protected function getNewHtmlPageCopilot(): HtmlPageCopilot
+    protected function getHtmlPageCopilot(): HtmlPageCopilot
     {
-        return new HtmlPageCopilot();
+        if (null === $this->copilot) {
+            $this->copilot = new HtmlPageCopilot();
+        }
+        return $this->copilot;
     }
 }
