@@ -235,6 +235,8 @@ class KitPageRenderer implements KitPageRendererInterface
     {
         $copilot = $this->getHtmlPageCopilot();
 
+
+
         if (null !== $this->pageConf) {
             if (null !== $this->layoutRootDir) {
 
