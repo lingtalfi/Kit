@@ -174,6 +174,10 @@ Related
 History Log
 =============
 
+- 1.12.2 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.12.1 -- 2020-08-10
 
     - fix KitPageRenderer->printPage not throwing exception if the layout is not a file 
