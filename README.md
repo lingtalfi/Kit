@@ -1,6 +1,6 @@
 Kit
 ===========
-2019-04-24 -> 2020-08-10
+2019-04-24 -> 2021-03-02
 
 
 
@@ -174,9 +174,13 @@ Related
 History Log
 =============
 
+- 1.12.4 -- 2021-03-02
+
+    - update ConfStorageInterface->getPageConf signature with php8 notation
+  
 - 1.12.3 -- 2020-12-08
 
-    - Fix lpi-deps not using natsort.
+    - Fix lpi-deps not using natsort
 
 - 1.12.2 -- 2020-12-04
 
