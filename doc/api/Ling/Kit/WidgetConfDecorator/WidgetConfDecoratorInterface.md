@@ -4,7 +4,7 @@
 
 The WidgetConfDecoratorInterface class
 ================
-2019-04-24 --> 2021-03-02
+2019-04-24 --> 2021-03-05
 
 
 
