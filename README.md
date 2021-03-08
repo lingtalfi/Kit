@@ -1,6 +1,6 @@
 Kit
 ===========
-2019-04-24 -> 2021-03-05
+2019-04-24 -> 2021-03-08
 
 
 
@@ -179,6 +179,10 @@ Related
 History Log
 =============
 
+- 1.12.6 -- 2021-03-08
+
+    - update KitPageRenderer->printPage, now doesn't add bodyClass if empty
+  
 - 1.12.5 -- 2021-03-05
 
     - update README.md, add install alternative

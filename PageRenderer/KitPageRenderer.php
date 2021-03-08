@@ -236,7 +236,6 @@ class KitPageRenderer implements KitPageRendererInterface
         $copilot = $this->getHtmlPageCopilot();
 
 
-
         if (null !== $this->pageConf) {
             if (null !== $this->layoutRootDir) {
 
@@ -244,7 +243,7 @@ class KitPageRenderer implements KitPageRendererInterface
                 $layout = $this->layoutRootDir . "/" . $this->pageConf['layout'];
 
 
-                if (is_file($layout)){
+                if (is_file($layout)) {
 
 
                     /**
@@ -253,13 +252,16 @@ class KitPageRenderer implements KitPageRendererInterface
                      * way that she defined the title and/or the description.
                      *
                      */
-                    if (array_key_exists("title", $this->pageConf)) {
+                    if (true === array_key_exists("title", $this->pageConf)) {
                         $copilot->setTitle($this->pageConf['title']);
                     }
-                    if (array_key_exists("description", $this->pageConf)) {
+                    if (true === array_key_exists("description", $this->pageConf)) {
                         $copilot->setDescription($this->pageConf['description']);
                     }
-                    if (array_key_exists("bodyClass", $this->pageConf)) {
+                    if (
+                        true === array_key_exists("bodyClass", $this->pageConf) &&
+                        false === empty($this->pageConf["bodyClass"])
+                    ) {
                         $copilot->addBodyTagClass($this->pageConf['bodyClass']);
                     }
 
