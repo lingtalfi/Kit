@@ -363,9 +363,11 @@ class KitPageRenderer implements KitPageRendererInterface
 
         if (false === array_key_exists($zoneName, $this->zones)) {
 
-
+            $debugArray = [
+                "page" => $pageLabel,
+                "zone" => $zoneName,
+            ];
             $this->widgetsCount[$zoneName] = count($widgets);
-
 
 
             //--------------------------------------------
@@ -379,7 +381,7 @@ class KitPageRenderer implements KitPageRendererInterface
                         $handler = $this->widgetHandlers[$type];
                         if ($handler instanceof KitPageRendererAwareInterface) {
                             $handler->setKitPageRenderer($this);
-                            $handler->process($widgetConf);
+                            $handler->process($widgetConf, $debugArray);
                             $widgets[$k] = $widgetConf;
                         }
 
@@ -429,11 +431,6 @@ class KitPageRenderer implements KitPageRendererInterface
                         if ($handler instanceof KitPageRendererAwareInterface) {
                             $handler->setKitPageRenderer($this);
                         }
-
-                        $debugArray = [
-                            "page" => $pageLabel,
-                            "zone" => $zoneName,
-                        ];
 
 
                         if (true === $this->strictMode) {

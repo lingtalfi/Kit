@@ -73,7 +73,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [WidgetHandlerInterface::render](https://github.com/lingtalfi/Kit/blob/master/WidgetHandler/WidgetHandlerInterface.php#L56-L56)
+See the source code for method [WidgetHandlerInterface::render](https://github.com/lingtalfi/Kit/blob/master/WidgetHandler/WidgetHandlerInterface.php#L62-L62)
 
 
 See Also

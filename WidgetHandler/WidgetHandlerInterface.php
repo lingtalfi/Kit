@@ -13,7 +13,6 @@ interface WidgetHandlerInterface
 {
 
 
-
     /**
      * Process the widget.
      *
@@ -22,12 +21,19 @@ interface WidgetHandlerInterface
      * - update the widget conf to make it more suitable for the rendering (optional)
      * - process the user input if necessary
      *
+     * The debug array can help creating useful error messages.
+     * It's an array containing the following entries:
+     *
+     * - page: the page label of the page containing the widget
+     * - zone: the name of the zone containing the widget
+     *
+     *
      *
      * @param array $widgetConf
-     * @return mixed
+     * @param array $debug
+     * @return void
      */
-    public function process(array &$widgetConf);
-
+    public function process(array &$widgetConf, array $debug): void;
 
 
     /**

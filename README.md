@@ -52,6 +52,10 @@ Related
 History Log
 =============
 
+- 1.14.0 -- 2021-04-08
+
+    - update WidgetHandlerInterface->process, now has a debugArray argument
+  
 - 1.13.0 -- 2021-04-08
 
     - update nomenclature, zone can now be thought as position
