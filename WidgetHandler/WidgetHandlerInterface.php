@@ -13,6 +13,23 @@ interface WidgetHandlerInterface
 {
 
 
+
+    /**
+     * Process the widget.
+     *
+     * This means:
+     *
+     * - update the widget conf to make it more suitable for the rendering (optional)
+     * - process the user input if necessary
+     *
+     *
+     * @param array $widgetConf
+     * @return mixed
+     */
+    public function process(array &$widgetConf);
+
+
+
     /**
      * Returns the html code of the widget, according to the widget configuration.
      * If the widget uses some assets, or use some js code block, it also registers them to the given copilot.
@@ -36,5 +53,6 @@ interface WidgetHandlerInterface
      * @throws \Exception
      *
      */
-    public function handle(array $widgetConf, HtmlPageCopilot $copilot, array $debug): string;
+    public function render(array $widgetConf, HtmlPageCopilot $copilot, array $debug): string;
+
 }
