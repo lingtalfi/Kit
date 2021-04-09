@@ -1,6 +1,6 @@
 Kit
 ===========
-2019-04-24 -> 2021-04-08
+2019-04-24 -> 2021-04-09
 
 
 
@@ -52,6 +52,10 @@ Related
 History Log
 =============
 
+- 1.14.1 -- 2021-04-09
+
+    - add vars property in the kit page array
+  
 - 1.14.0 -- 2021-04-08
 
     - update WidgetHandlerInterface->process, now has a debugArray argument

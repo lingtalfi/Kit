@@ -1,6 +1,6 @@
 Conception notes 
 ========
-2019-04-24 -> 2021-04-08
+2019-04-24 -> 2021-04-09
 
 
 
@@ -59,7 +59,7 @@ The main idea with kit is to have **independent** widgets that works together in
 
 The kit configuration array
 -------------
-2019-04-24 -> 2021-04-08
+2019-04-24 -> 2021-04-09
 
 
 To actually render a page, we need to pass a configuration array to the KitPageRenderer object.
@@ -74,12 +74,13 @@ Here is the configuration for a given page (variables are preceded with the doll
 label: string, the human name for the page. It is used in error messages.                 
 layout: string, the relative path to the layout file for this page. The path is relative to a root which shall be defined in the general configuration of kit. Generally, the app directory.
 layout_vars: []                 # an array of layout vars that will be accessible to the layout (a layout might be configured to some degree by such variables, depending on the layout)
+vars: []                        # an array of custom vars related to the page, put what you want here. For instance, a theme variable...
+body_class: string, css class(es) to apply to the body tag
 zones:
     $zoneName:                  # note: the zone name is called from the layout file 
         -   
             name: string, the widget name
             type: string, the widget type
-            body_class: string, css class(es) to apply to the body tag
             ?active: bool=true, whether to use the widget
             ...any other configuration value that you want 
                          
